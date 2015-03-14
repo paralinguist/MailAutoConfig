@@ -1,0 +1,23 @@
+.login-label
+{
+  display: inline-block;
+  width: 6em;
+}
+.login-input
+{
+  width: 20em;
+  margin-bottom: 0.5em;
+}
+.login-button
+{
+  width: auto;
+}
+.button-icon
+{
+  width: 0.9em;
+  height: 0.9em;
+}
+.save-button, .cancel-button
+{
+  display: none;
+}
