@@ -73,7 +73,7 @@ else
       if (!(is_null($protocol_id)))
       {
         echo "      
-            <tr id='domain$domain_id:$protocol_id:$socket_type_id'>
+            <tr id='domain-$domain_id-$protocol_id-$socket_type_id'>
               <td>{$protocols[$protocol_id]}</td>
               <td>{$sockets[$socket_type_id]}</td>
               <td>$hostname</td>
@@ -272,8 +272,26 @@ echo "
           newHeader.remove();
           //TODO: warn the user that creation failed
         }
-
       });
+	  
+    $(document).on( 'click', '.delete-protocol', function()
+    {
+      var splitID = this.id.split('-');
+      var domainID = splitID[2];
+      var protocolID = splitID[4]
+      var socketTypeID = splitID[6];
+      var tableRowID = 'domain-' + domainID + '-' + protocolID + '-' + socketTypeID;
+      var protocolPost =
+      {
+        domainID: domainID,
+        protocolID: protocolID,
+        socketTypeID: socketTypeID
+      }
+      $.post( 'delete_protocol.php', protocolPost, function(protocolResult)
+      {
+        $('#'+tableRowID).remove();
+      });
+    });
 
     </script> 
 <?php
