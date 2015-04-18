@@ -1,6 +1,5 @@
 <?php
 session_start();
-include_once('security.php');
 date_default_timezone_set('UTC');
 if (!file_exists('mailconfig.db') && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['repassword']))
 {
@@ -10,7 +9,7 @@ if (!file_exists('mailconfig.db') && isset($_POST['email']) && isset($_POST['pas
   $repassword = $_POST['repassword'];
   if ($password === $repassword)
   {
-    $password_hash = create_hash($password);
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
     $create_users = $db->prepare('CREATE TABLE users(email varchar('.EMAIL_MAX_LENGTH.'), password varchar('.SALTED_HASH_LENGTH.'), lastaccessed varchar('.DATETIME_LENGTH.'), lastip varchar('.IP_MAX_LENGTH.'))');
     $users_success = $create_users->execute();
     $create_domains = $db->prepare('CREATE TABLE domains(domainid INTEGER PRIMARY KEY, domain VARCHAR('.FQDN_MAX_LENGTH.'))');

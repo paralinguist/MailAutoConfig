@@ -1,8 +1,6 @@
 <?php
 session_start();
-include_once('security.php');
 include_once('header.php');
-
 if (isset($_POST['email']) && isset($_POST['password']))
 {
   $email = $_POST['email'];
@@ -16,7 +14,7 @@ if (isset($_POST['email']) && isset($_POST['password']))
     $auth_data = $auth_query->fetch(PDO::FETCH_ASSOC);
     $password_hash = $auth_data['password'];
     
-    if (validate_password($password, $password_hash))
+    if (password_verify($password, $password_hash))
     {
       $_SESSION['email'] = $email;
       session_write_close();

@@ -52,7 +52,7 @@ $auth_methods = array(PASSWORD_CLEARTEXT => 'Cleartext (unencrypted)',
 
 //Various constant constraints
 DEFINE('EMAIL_MAX_LENGTH', 254);
-DEFINE('SALTED_HASH_LENGTH', 78);
+DEFINE('SALTED_HASH_LENGTH', 255);
 DEFINE('DATETIME_LENGTH', 26);
 DEFINE('IP_MAX_LENGTH', 45);
 DEFINE('FQDN_MAX_LENGTH', 253);
