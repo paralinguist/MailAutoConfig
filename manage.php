@@ -11,7 +11,7 @@ function get_table_bottom($domain_id)
       </div>";
 }
 
-include_once('header.php');
+require_once('header.php');
 if (!isset($_SESSION['email']))
 {
   header('location: index.php');

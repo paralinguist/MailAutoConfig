@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('header.php');
+require_once('header.php');
 if (isset($_POST['email']) && isset($_POST['password']))
 {
   $email = $_POST['email'];
@@ -8,7 +8,7 @@ if (isset($_POST['email']) && isset($_POST['password']))
   $auth_params = array(':email'=> $email);
   $auth_query = $db->prepare('SELECT password
                              FROM users
-							               WHERE email = :email');
+                             WHERE email = :email');
   if ($auth_query->execute($auth_params))
   {
     $auth_data = $auth_query->fetch(PDO::FETCH_ASSOC);
