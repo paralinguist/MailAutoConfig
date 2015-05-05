@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('header.php');
+require_once('header.php');
 if (isset($_POST['email']) && isset($_POST['password']))
 {
   $email = $_POST['email'];
