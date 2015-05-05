@@ -1,8 +1,7 @@
 <?php
 $install = false;
-//TODO: resolve timing issue with page description setting
 $page_description = 'Authentication - Please log in';
-require_once('header.php');
+include_once('header.php');
 if (!file_exists('mailconfig.db'))
 {
   $install = true;
