@@ -5,9 +5,9 @@ function get_table_bottom($domain_id)
   return "    
           </tbody>
         </table>
-        <button id='add-prot-domain-$domain_id' class='add-protocol' role='button'><img src='img/add.png' alt='' class='button-icon'> Add a protocol</button>
-        <button id='save-prot-domain-$domain_id' class='save-protocol save-button' role='button'><img src='img/save.png' alt='' class='button-icon'> Save this protocol</button>
-        <button id='cancel-prot-domain-$domain_id' class='cancel-protocol cancel-button' role='button'><img src='img/cancel.png' alt='' class='button-icon'> Cancel</button>
+        <button id='add-prot-domain-$domain_id' class='add-protocol' role='button'><i class='fa fa-plus'></i> Add a protocol</button>
+        <button id='save-prot-domain-$domain_id' class='save-protocol save-button' role='button'><i class='fa fa-check'></i> Save this protocol</button>
+        <button id='cancel-prot-domain-$domain_id' class='cancel-protocol cancel-button' role='button'><i class='fa fa-times'></i> Cancel</button>
       </div>";
 }
 
@@ -51,9 +51,9 @@ else
       <div id='domain-{$domain_id}-container' class='domain-container'>
         <h2 id='header-$domain_id'>
           $domain 
-          <button id='edit-domain-$domain_id' class='edit-domain' role='button'><img src='img/edit.png' alt='' class='button-icon'></button>
-          <button id='save-domain-$domain_id' class='save-domain save-button' role='button'><img src='img/save.png' alt='' class='button-icon'></button>
-          <button id='delete-domain-$domain_id' class='delete-domain' role='button'><img src='img/delete.png' alt='' class='button-icon'></button>
+          <button id='edit-domain-$domain_id' class='edit-domain' role='button'><i class='fa fa-pencil-square'></i></button>
+          <button id='save-domain-$domain_id' class='save-domain save-button' role='button'><i class='fa-check'></i><</button>
+          <button id='delete-domain-$domain_id' class='delete-domain' role='button'><i class='fa-trash'></i><</button>
         </h2>
         <table id='domain-$domain_id'>
           <thead>
@@ -80,9 +80,9 @@ else
               <td>$port</td>
               <td>{$auth_methods[$auth_id]}</td>
               <td>
-                <button id='edit-domain-$domain_id-protocol-$protocol_id-socket-$socket_type_id' class='edit-protocol' role='button'><img src='img/edit.png' alt='' class='button-icon'></button>
-                <button id='save-domain-$domain_id-protocol-$protocol_id-socket-$socket_type_id' class='save-protocol save-button' role='button'><img src='img/save.png' alt='' class='button-icon'></button>
-                <button id='delete-domain-$domain_id-protocol-$protocol_id-socket-$socket_type_id' class='delete-protocol' role='button'><img src='img/delete.png' alt='' class='button-icon'></button>
+                <button id='edit-domain-$domain_id-protocol-$protocol_id-socket-$socket_type_id' class='edit-protocol' role='button'><i class='fa fa-pencil-square'></i></button>
+                <button id='save-domain-$domain_id-protocol-$protocol_id-socket-$socket_type_id' class='save-protocol save-button' role='button'><i class='fa fa-check'></i></button>
+                <button id='delete-domain-$domain_id-protocol-$protocol_id-socket-$socket_type_id' class='delete-protocol' role='button'><i class='fa fa-trash'></i></button>
               </td>
             </tr>";
       }
@@ -93,8 +93,8 @@ else
     }
     echo "    
     </div>
-    <button id='create-domain'><img src='img/add.png' alt='' class='button-icon'> Add a domain</button>
-    <button id='save-domain' class='save-button'><img src='img/save.png' alt='' class='button-icon'> Save this domain</button>";
+    <button id='create-domain'><i class='fa fa-plus'></i> Add a domain</button>
+    <button id='save-domain' class='save-button'><i class='fa fa-check'></i> Save this domain</button>";
   }
   else
   {
@@ -220,7 +220,7 @@ echo "
         $( '#save-domain' ).show();
         $( '#domains-container' ).append(
            '<div id="new-domain-container" class="domain-container">' +
-           '  <h2 id="new-header"><input name="new-domain" id="new-domain" type="text" value="Enter new Domain Name"></h2>' +
+           '  <h2 id="new-header"><input name="new-domain" id="new-domain" type="text" placeholder="Enter new Domain Name"></h2>' +
            '</div>');
       });
 
