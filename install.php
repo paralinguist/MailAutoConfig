@@ -4,6 +4,7 @@ date_default_timezone_set('UTC');
 if (!file_exists('mailconfig.db') && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['repassword']))
 {
   $db = new PDO('sqlite:mailconfig.db');
+  require_once('common.php');
   $email = $_POST['email'];
   $password = $_POST['password'];
   $repassword = $_POST['repassword'];

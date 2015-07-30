@@ -27,6 +27,7 @@ require_once('common.php');
     <meta name="description" content="Mail Autoconfiguration Management">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </head>
   <body>
