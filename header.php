@@ -1,9 +1,9 @@
 <?php
 session_start();
-$auth_link = '<a href="index.php">log in</a>';
+$auth_link = '<a href="index.php">sign in</a>';
 if (isset($_SESSION['email']))
 {
-  $auth_link = '<a href="logout.php">log out</a>';
+  $auth_link = '<a href="signout.php"><i class="fa  fa-sign-out"></i>sign out</a>';
 }
 
 $page_title = 'Mail Auto Config';

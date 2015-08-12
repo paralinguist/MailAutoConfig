@@ -1,14 +1,14 @@
-.login-label
+.signin-label
 {
   display: inline-block;
   width: 6em;
 }
-.login-input
+.signin-input
 {
   width: 20em;
   margin-bottom: 0.5em;
 }
-.login-button
+.signin-button
 {
   width: auto;
 }

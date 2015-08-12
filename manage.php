@@ -2,13 +2,13 @@
 
 function get_table_bottom($domain_id)
 {
-  return "    
+  return '    
           </tbody>
         </table>
-        <button id='add-prot-domain-$domain_id' class='add-protocol' role='button'><i class='fa fa-plus'></i> Add a protocol</button>
-        <button id='save-prot-domain-$domain_id' class='save-protocol save-button' role='button'><i class='fa fa-check'></i> Save this protocol</button>
-        <button id='cancel-prot-domain-$domain_id' class='cancel-protocol cancel-button' role='button'><i class='fa fa-times'></i> Cancel</button>
-      </div>";
+        <button id="add-prot-domain-$domain_id" class="add-protocol" role="button"><i class="fa fa-plus-square"></i> Add a protocol</button>
+        <button id="save-prot-domain-$domain_id" class="save-protocol save-button" role="button"><i class="fa fa-check"></i> Save this protocol</button>
+        <button id="cancel-prot-domain-$domain_id" class="cancel-protocol cancel-button" role="button"><i class="fa fa-times"></i> Cancel</button>
+      </div>';
 }
 
 require_once('header.php');
@@ -52,8 +52,8 @@ else
         <h2 id='header-$domain_id'>
           $domain 
           <button id='edit-domain-$domain_id' class='edit-domain' role='button'><i class='fa fa-pencil-square'></i></button>
-          <button id='save-domain-$domain_id' class='save-domain save-button' role='button'><i class='fa-check'></i><</button>
-          <button id='delete-domain-$domain_id' class='delete-domain' role='button'><i class='fa-trash'></i><</button>
+          <button id='save-domain-$domain_id' class='save-domain save-button' role='button'><i class='fa fa-check'></i></button>
+          <button id='delete-domain-$domain_id' class='delete-domain' role='button'><i class='fa fa-trash'></i></button>
         </h2>
         <table id='domain-$domain_id'>
           <thead>
@@ -93,7 +93,7 @@ else
     }
     echo "    
     </div>
-    <button id='create-domain'><i class='fa fa-plus'></i> Add a domain</button>
+    <button id='create-domain'><i class='fa fa-plus-square'></i> Add a domain</button>
     <button id='save-domain' class='save-button'><i class='fa fa-check'></i> Save this domain</button>";
   }
   else
@@ -131,7 +131,7 @@ echo "
 echo "
       function getTableBottom(domainID)
       {
-        return \"".preg_replace( "/\r|\n/", "\" + \n \"", get_table_bottom("'\"+domainID+\"'"))."\";
+        return '".preg_replace( "/\r|\n/", "' + \n '", get_table_bottom("'\"+domainID+\"'"))."';
       }\n\n";
 
 ?>
@@ -258,8 +258,6 @@ echo "
                 '    <tbody>' + getTableBottom(domainID) +
                 '    </tbody>' +
                 '  </table>' +
-                '  <button id="add-prot-domain-' + domainID + '" class="add-protocol" role="button">Add a protocol</button>' + 
-                '  <button id="save-prot-domain-' + domainID + '" class="save-protocol save-button" role="button">Save this protocol</button>' + 
                 '</div>');
               $( '#new-header' ).attr( 'id', 'header-' + domainID );
               $( '#new-domain-container' ).attr( 'id', 'domain-' + domainID + '-container' );
@@ -290,6 +288,20 @@ echo "
       $.post( 'delete_protocol.php', protocolPost, function(protocolResult)
       {
         $('#'+tableRowID).remove();
+      });
+	  });
+    
+    $(document).on( 'click', '.delete-domain', function()
+    {
+      var splitID = this.id.split('-');
+      var domainID = splitID[2];
+      var protocolPost =
+      {
+        domainID: domainID
+      }
+      $.post( 'delete_domain.php', protocolPost, function(protocolResult)
+      {
+        $('#domain-'+domainID+'-container').remove();
       });
 	  });
 

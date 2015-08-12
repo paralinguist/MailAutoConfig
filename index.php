@@ -1,6 +1,6 @@
 <?php
 $install = false;
-$page_description = 'Authentication - Please log in';
+$page_description = 'Authentication - Please sign in';
 include_once('header.php');
 if (!file_exists('mailconfig.db'))
 {
@@ -28,20 +28,20 @@ if (isset($_SESSION['email']))
   exit();
 }
 ?>
-    <form method="post" action="<?php echo $install ? 'install.php' : 'login.php' ?>">
+    <form method="post" action="<?php echo $install ? 'install.php' : 'signin.php' ?>">
       <p>
-        <label for="email" class="login-label">Email:</label>
-        <input id="email" name="email" type="text" class="login-input"><br>
-        <label for="password" class="login-label">Password:</label>
-        <input id="password" name="password" type="password" class="login-input"><br>
+        <label for="email" class="signin-label">Email:</label>
+        <input id="email" name="email" type="text" class="signin-input"><br>
+        <label for="password" class="signin-label">Password:</label>
+        <input id="password" name="password" type="password" class="signin-input"><br>
 <?php 
   if ($install)
   {
-    echo '        <label for="repassword" class="login-label">Re-enter password:</label>
-                  <input id="repassword" name="repassword" type="password" class="login-input"><br>';
+    echo '        <label for="repassword" class="signin-label">Re-enter password:</label>
+                  <input id="repassword" name="repassword" type="password" class="signin-input"><br>';
   }
 ?>
-        <input id="submit" name="submit" type="submit" class="login-button" value="<?php echo $install ? 'create admin' : 'log in' ?>">
+        <input id="submit" name="submit" type="submit" class="signin-button" value="<?php echo $install ? 'create admin' : 'sign in' ?>">
       </p>
     </form>
 

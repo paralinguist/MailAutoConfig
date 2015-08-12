@@ -24,7 +24,7 @@ if (isset($_POST['email']) && isset($_POST['password']))
     else
     {
       header('location: index.php?origin=failedauth');
-      echo 'Authentication failed. You should redirect to the <a href="index.php?origin=failedauth">log in page</a>.';
+      echo 'Authentication failed. You should redirect to the <a href="index.php?origin=failedauth">sign in page</a>.';
     }
   }
   else
